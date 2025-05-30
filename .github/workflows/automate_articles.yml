@@ -2,8 +2,8 @@ name: Automatische Artikelerstellung
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Führt den Workflow täglich um 00:00 Uhr UTC aus
-  workflow_dispatch: # Ermöglicht auch manuelles Auslösen
+    - cron: "0 0 * * *"  # Führt den Workflow täglich um 00:00 UTC aus
+  workflow_dispatch:   # Erlaubt auch manuelles Auslösen
 
 jobs:
   build:
