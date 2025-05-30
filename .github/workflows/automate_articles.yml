@@ -8,7 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Repository auschecken
         uses: actions/checkout@v2
@@ -29,7 +28,8 @@ jobs:
           git config --local user.name "Niklas223"
           git config --local user.email "internetspam22@gmx.de"
           git add posts/
-          git commit -m "Automatisch generierter Artikel"
+          # Commit only if changes exist; avoids error if nothing changed
+          git diff --cached --quiet || git commit -m "Automatisch generierter Artikel"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
